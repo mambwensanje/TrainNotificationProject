@@ -55,14 +55,14 @@ This idea was inspired by a similar course registration project from datababedev
 
 ## 🧠 How It Works
 
--You input your desired train line and station (e.g. “Joondalup” and “Perth”)
--The script builds the corresponding Transperth live status URL
--Using Selenium, it loads the site and waits for the dynamic train data table
--BeautifulSoup parses the rendered HTML to check each train’s status
--If any train shows a delay, you’ll receive:
-   -A desktop alert
-   -A Twilio SMS to your phone
--The script waits 5 minutes, then checks again — repeating until services are confirmed to be on time
+- You input your desired train line and station (e.g. “Joondalup” and “Perth”)
+- The script builds the corresponding Transperth live status URL
+- Using Selenium, it loads the site and waits for the dynamic train data table
+- BeautifulSoup parses the rendered HTML to check each train’s status
+- If any train shows a delay, you’ll receive:
+   - A desktop alert
+   - A Twilio SMS to your phone
+- The script waits 5 minutes, then checks again — repeating until services are confirmed to be on time
 
 ## ▶️ How To Run
 From the notificationScript/ folder, run the script:
@@ -73,23 +73,23 @@ python trainNotificationScript.py
 
 You’ll be prompted to enter:
 
--Train line (e.g., Yanchep)
--Station name (e.g., Perth)
+- Train line (e.g., Yanchep)
+- Station name (e.g., Perth)
 
 If delays are detected, you'll receive:
 
--A desktop alert
--An SMS with the disruption details
+- A desktop alert
+- An SMS with the disruption details
 
 ---
 
 ## 🔄 Customization Ideas
--Change notification interval (default is 5 mins)
--Replace Twilio SMS with email or Discord webhooks
--Make it GUI-based with Tkinter or web-based with Flask
--Extend to buses or ferry routes
--Auto-detect your nearest station using location APIs
--Automate to run everyday at your regular travel times
+- Change notification interval (default is 5 mins)
+- Replace Twilio SMS with email or Discord webhooks
+- Make it GUI-based with Tkinter or web-based with Flask
+- Extend to buses or ferry routes
+- Auto-detect your nearest station using location APIs
+- Automate to run everyday at your regular travel times
 
 ---
 
