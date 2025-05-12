@@ -54,7 +54,7 @@ station = input("Please Enter Train Station e.g. Perth    ")
 # Adding headers to mimic a real browser (to avoid getting blocked)
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
-# Function to check if course is available
+# Function to check if services are on time
 def check_status(line, station):
     try:
         # Set the URL for the given train line and station
@@ -99,6 +99,7 @@ def check_status(line, station):
                     print(f"...\n{last_updated}")
             
             if status != "On Time":
+                # Send pc notification that services are delayed
                 notification.notify(
                     title=f"Your train service to {destination} is delayed",
                     message=f"{line} line services may be delayed for {station} Stn.\n {departure} | {destination} | {description} | {status}",
@@ -107,7 +108,7 @@ def check_status(line, station):
                 # Call the send text function to send a text message via Twilio
                 send_text_notification(line, station)
                 return False
-            # Send pc notification that everything is fine
+            # Send pc notification that services are on time
             else:
                 notification.notify(
                     title=f"{line} line train services on time!",
@@ -122,8 +123,6 @@ def check_status(line, station):
 
 # Infinite loop to check every 5 minutes until train services restored
 while True:
-#     send_text_notification(line, station)
-#     break
     if check_status(line, station):
         break
     time.sleep(300)
